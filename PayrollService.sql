@@ -75,3 +75,4 @@ select EmployeePayroll.Emp_ID, Name, Salary, StartDate, Gender, Department, Phon
 from EmployeePayroll 
 left join EmployeeDepartment on EmployeePayroll.Emp_ID = EmployeeDepartment.ID
 left join Payroll on EmployeePayroll.Emp_ID = Payroll.ID
+
