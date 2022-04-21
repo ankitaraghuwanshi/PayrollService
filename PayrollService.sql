@@ -9,6 +9,8 @@ Name varchar(50),
 Salary bigint,
 StartDate datetime
 )
-insert into Employee_Payroll (Name,Salary,StartDate) values 
+insert into EmployeePayroll (Name,Salary,StartDate) values 
 ('Ankita',30000,'2022-01-04'),
 ('Golu',40000,'2021-05-18')
+
+select * from EmployeePayroll
