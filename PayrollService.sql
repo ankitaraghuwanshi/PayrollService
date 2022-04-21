@@ -25,3 +25,9 @@ alter table EmployeePayroll add Gender varchar(1)
 
 update EmployeePayroll set Gender = 'M'
 update EmployeePayroll set Gender = 'F' where Name = 'Ankita'
+
+select Gender, sum(Salary) as TotalSalary from EmployeePayroll group by Gender
+select Gender, avg(Salary) as AverageSalary from EmployeePayroll group by Gender
+select Gender, min(Salary) as Minimum from EmployeePayroll group by Gender
+select Gender, max(Salary) as Maximum from EmployeePayroll group by Gender
+select Gender, count(*) as MaleorFemale from EmployeePayroll group by Gender
