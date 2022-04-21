@@ -20,3 +20,8 @@ select * from EmployeePayroll
 
 select Salary from EmployeePayroll where Name = 'Bill'
 select Name from EmployeePayroll WHERE StartDate BETWEEN CAST('2018-01-01'AS DATE) AND '2022-04-21';
+
+alter table EmployeePayroll add Gender varchar(1)
+
+update EmployeePayroll set Gender = 'M'
+update EmployeePayroll set Gender = 'F' where Name = 'Ankita'
