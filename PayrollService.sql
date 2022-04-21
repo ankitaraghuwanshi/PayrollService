@@ -52,3 +52,26 @@ select * from EmployeeDepartment
 select EmployeePayroll.Emp_ID, Name, Salary, StartDate, Gender, Department, Phone, Address
 from EmployeePayroll 
 left join EmployeeDepartment on EmployeePayroll.Emp_ID = EmployeeDepartment.ID
+
+create table Payroll(
+ID int not null,
+BasicPay bigint,
+Deductions bigint,
+TaxablePay bigint,
+IncomeTax bigint,
+NetPay bigint
+)
+insert into Payroll(ID,BasicPay,Deductions,TaxablePay,IncomeTax,NetPay) values
+(1,40010,320,456,263,50),
+(2,64230,500,189,172,200),
+(3,54000,320,136,456,100),
+(4,66000,540,155,950,80),
+(5,54000,430,173,431,60),
+(6,11300,430,451,231,66)
+
+select * from Payroll
+
+select EmployeePayroll.Emp_ID, Name, Salary, StartDate, Gender, Department, Phone, Address, BasicPay, Deductions, TaxablePay, IncomeTax, NetPay
+from EmployeePayroll 
+left join EmployeeDepartment on EmployeePayroll.Emp_ID = EmployeeDepartment.ID
+left join Payroll on EmployeePayroll.Emp_ID = Payroll.ID
