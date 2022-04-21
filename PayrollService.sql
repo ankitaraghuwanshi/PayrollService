@@ -31,3 +31,24 @@ select Gender, avg(Salary) as AverageSalary from EmployeePayroll group by Gender
 select Gender, min(Salary) as Minimum from EmployeePayroll group by Gender
 select Gender, max(Salary) as Maximum from EmployeePayroll group by Gender
 select Gender, count(*) as MaleorFemale from EmployeePayroll group by Gender
+
+create table EmployeeDepartment(
+ID int not null,
+Department varchar(50) not null,
+Phone bigint, 
+Address varchar(100),
+)
+
+insert into EmployeeDepartment(ID,Department,Phone,Address) values
+(1,'Hospitality',9545454545,'MP'),
+(2,'HR',9574747485,'UP'),
+(3,'IT',9414141411,'Delhi'),
+(4,'Management',9132456783,'Mumbai'),
+(5,'Sales',978945612,'Pune'),
+(6,'IT',941526398,'Raipur')
+
+select * from EmployeeDepartment
+
+select EmployeePayroll.Emp_ID, Name, Salary, StartDate, Gender, Department, Phone, Address
+from EmployeePayroll 
+left join EmployeeDepartment on EmployeePayroll.Emp_ID = EmployeeDepartment.ID
