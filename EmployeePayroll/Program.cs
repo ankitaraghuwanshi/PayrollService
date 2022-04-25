@@ -34,10 +34,11 @@ namespace EmployeePayroll
                         Console.WriteLine("");
                         break;
                     case 3:
-                        detailsOfEmp.UpdateSalary(employee); 
+                        detailsOfEmp.UpdateSalary(employee);
+                        Console.WriteLine("Data updated");
                         break;
                     case 4:
-                        var fromDate = Convert.ToDateTime("2017-11-25");
+                        var fromDate = Convert.ToDateTime("2020-11-25");
                         var ToDate = Convert.ToDateTime("2022-04-01");
                         detailsOfEmp.EmployeeDataInDateRange(fromDate, ToDate);
                         break;
