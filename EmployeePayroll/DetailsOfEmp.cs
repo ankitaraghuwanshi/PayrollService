@@ -135,52 +135,6 @@ namespace EmployeePayroll
                 throw;
             }
         }
-        public bool EmployeeDataInDateRange(DateTime fromDate, DateTime toDate)
-        {
-            try
-            {
-                Employee empPayroll = new Employee();
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    SqlCommand command = new SqlCommand("dbo.GetDetailBetweenDates", connection);
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@FromDate", fromDate);
-                    command.Parameters.AddWithValue("@ToDate", toDate);
-                    connection.Open();
-                    SqlDataReader dr = command.ExecuteReader();
-                    if (dr.HasRows)
-                    {
-                        while (dr.Read())
-                        {
-                            empPayroll.Emp_Id = dr.GetInt32(0);
-                            empPayroll.Name = dr.GetString(1);
-                            empPayroll.Salary = dr.GetInt64(2);
-                            empPayroll.StartDate = dr.GetDateTime(3);
-
-                            empPayroll.Gender = dr.GetString(4);
-                            empPayroll.Department = dr.GetString(5);
-                            empPayroll.Phone = dr.GetInt64(6);
-                            empPayroll.Address = dr.GetString(7);
-
-                            empPayroll.BasicPay = dr.GetInt64(8);
-                            empPayroll.Deduction = dr.GetInt32(9);
-                            empPayroll.TaxablePay = dr.GetInt32(10);
-                            empPayroll.IncomeTax = dr.GetInt32(11);
-                            empPayroll.NetPay = dr.GetInt32(12); ;
-                            Console.WriteLine(empPayroll.Emp_Id + "," + empPayroll.Name + "," + empPayroll.Salary + "," + empPayroll.StartDate + "," + empPayroll.Gender + "," + empPayroll.Phone + ","
-                            + empPayroll.Department + "," + empPayroll.Address + "," + empPayroll.BasicPay + "," + empPayroll.Deduction + "," + empPayroll.TaxablePay + "," + empPayroll.IncomeTax + "," + empPayroll.NetPay);
-                        }
-                        return true;
-                    }
-                    connection.Close();
-                    return false;
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-        }
+       
     }
 }
